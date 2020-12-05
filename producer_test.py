@@ -7,7 +7,7 @@ import time
 def error_cb(err):
     print('Error: %s' % err)
 
-def to_kafka():
+#def to_kafka():
 
 
 
