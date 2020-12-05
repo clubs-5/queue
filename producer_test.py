@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # 步驟2. 產生一個Kafka的Producer的實例
     producer = Producer(props)
     # 步驟3. 指定想要發佈訊息的topic名稱
-    topicName = 'test'
+    topicName = 'member'
     msgCount = 10000
     
     try:
