@@ -24,12 +24,12 @@ if __name__ == '__main__':
     # 步驟3. 指定想要發佈訊息的topic名稱
     topicName = 'test'
     msgCount = 10000
-    e04 = '幹'
+    
     try:
         print('Start sending messages ...')
         # produce(topic, [value], [key], [partition], [on_delivery], [timestamp], [headers])
         for i in range(msgCount):
-            producer.produce(topicName, key=str(i), value=str(e04))
+            producer.produce(topicName, key=str(i), value=str(i))
             #producer.send(topicName, key=str(i), value=str(e04) )
             producer.poll(0)  # <-- (重要) 呼叫poll來讓client程式去檢查內部的Buffer
             print('key={}, value={}'.format(str(i), str(i)))
