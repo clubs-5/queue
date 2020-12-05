@@ -7,13 +7,16 @@ import time
 def error_cb(err):
     print('Error: %s' % err)
 
+def to_kafka():
+
+
 
 # 主程式進入點
 if __name__ == '__main__':
     # 步驟1. 設定要連線到Kafka集群的相關設定
     props = {
         # Kafka集群在那裡?
-        'bootstrap.servers': '18.183.130.58:9095',          # <-- 置換成要連接的Kafka集群
+        'bootstrap.servers': '10.8.0.6:9092',          # <-- 置換成要連接的Kafka集群
         'error_cb': error_cb                            # 設定接收error訊息的callback函數
     }
     # 步驟2. 產生一個Kafka的Producer的實例
@@ -21,11 +24,13 @@ if __name__ == '__main__':
     # 步驟3. 指定想要發佈訊息的topic名稱
     topicName = 'test'
     msgCount = 10000
+    e04 = '幹'
     try:
         print('Start sending messages ...')
         # produce(topic, [value], [key], [partition], [on_delivery], [timestamp], [headers])
         for i in range(msgCount):
-            producer.produce(topicName, key=str(i), value=str(9095))
+            #producer.produce(topicName, key=str(i), value=str(e04))
+            producer.send(topicName, key=str(i), value=str(e04) )
             producer.poll(0)  # <-- (重要) 呼叫poll來讓client程式去檢查內部的Buffer
             print('key={}, value={}'.format(str(i), str(i)))
             time.sleep(3)  # 讓主執行緒停個3秒
