@@ -18,7 +18,7 @@ services:
     ports:
       - '9092:9092'
       - '29092:29092'
-      #- '9095:9095'
+      - '9095:9095'
       #- '29095:29095'
     depends_on:
       - zookeeper
@@ -33,5 +33,5 @@ services:
       ## for public use
       #KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://ec2-18-183-130-58.ap-northeast-1.compute.amazonaws.com:9092
       #advertised.host.name: 10.42.0.103
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://10.8.0.6:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://10.8.0.6:9092,po://10.42.0.100:9095
 
